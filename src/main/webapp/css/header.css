@@ -1,0 +1,10 @@
+#navbar{
+	padding:20px;
+}
+#effect:hover{
+	font-size: 200%;
+	 font-family: 'Annie Use Your Telescope';
+}
+.container-fluid{
+	background-color:white;
+}
