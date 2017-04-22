@@ -101,6 +101,12 @@ public class UserController {
 		ModelAndView mv;
 		String userid = SecurityContextHolder.getContext().getAuthentication().getName();
 		user=userDAO.getUserById(userid);
+		if(user==null)
+		{
+			mv = new ModelAndView("/User/Login","command",new User());
+			mv.addObject("wrongCredentials", "Please Check Whether Credentials Are Same");
+			return mv;
+		}
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		Principal principal = request.getUserPrincipal();
 		String loggedInUserid = principal.getName();

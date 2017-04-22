@@ -56,7 +56,11 @@
   			<li id="effect"><c:if test="${(not empty userLogin) and (not empty userRegister) }">
   			<c:if test="${empty showAdmin }"><a href="manage_cart" style="color:blue"><i class="fa fa-shopping-cart fa-fw"></i>My Cart</a></c:if>
   			<a href="manage_account_settings"><i class="fa fa-cog fa-fw" style="color:red"></i>My Account</a>
-  			<a href="manage_logout"><i class="fa fa-sign-in fa-fw" style="color:blue"></i>Logout</a></c:if></li>
+  			<a href="javascript:document.getElementById('logout').submit()"><i class="fa fa-sign-in fa-fw" style="color:blue"></i>Logout</a></c:if></li>
+  			<c:url value="j_spring_security_logout" var="logoutUrl" />
+			<form id="logout" action="${logoutUrl}" method="post" >
+			  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+			</form>
         </ul>
       </li>
       <!--End User Dropdown Menu Contents -->
